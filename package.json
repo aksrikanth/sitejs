@@ -1,0 +1,14 @@
+{
+  "name": "sitejs",
+  "version": "0.0.0",
+  "description": "nodejs version of my blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Srikanth K. Agaram",
+  "license": "GPLv3 (or later)",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
