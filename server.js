@@ -19,7 +19,8 @@ server.route([
     method: 'GET',
     path: '/robots.txt',
     handler: (request, reply) => {
-      reply('User-agent: *\nDisallow: /');
+      return reply('User-agent: *\nDisallow: /')
+          .type('text/plain');
     }
   },
   {  // Route static assets from public folder

@@ -1,3 +1,4 @@
-node_modules
+/articles
 config/*.json
+node_modules
 public/dist

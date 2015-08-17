@@ -2,7 +2,7 @@
   "name": "sitejs",
   "version": "0.0.0",
   "description": "nodejs version of my blog",
-  "main": "site.js",
+  "main": "server.js",
   "scripts": {
     "start": "node node_modules/babel/bin/babel-node.js server.js",
     "build": "node node_modules/babel/bin/babel-node.js node_modules/webpack/bin/webpack.js --colors --display-error-details --verbose --config config/webpack.js"

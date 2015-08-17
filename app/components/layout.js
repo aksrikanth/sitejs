@@ -1,10 +1,14 @@
 import React from 'react';
+import {RouteHandler} from 'react-router';
 import Transmit from 'react-transmit';
 
 class Layout extends React.Component {
   render () {
     return (
-      <h1>Hello</h1>
+      <div>
+        <h1>Srikanth's Blog</h1>
+        <RouteHandler />
+      </div>
     );
   }
 }
