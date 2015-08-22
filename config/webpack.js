@@ -18,12 +18,12 @@ export default {
   module: {
     loaders: [
       {
-        include: /\.json$/, 
+        include: /\.json$/,
         loaders: ['json-loader']
       },
       {
-        include: /\.js$/, 
-        loaders: ['babel-loader?stage=0&optional=runtime&plugins=typecheck'],
+        include: /\.js$/,
+        loaders: ['babel-loader?stage=0&optional=runtime'],
         exclude: /node_modules/
       }
     ]
@@ -34,5 +34,9 @@ export default {
       'node_modules'
     ],
     extensions: ['', '.json', '.js']
+  },
+  node: {
+    __dirname: true,
+    fs: 'empty'
   }
 };

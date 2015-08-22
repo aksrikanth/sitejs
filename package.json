@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node node_modules/babel/bin/babel-node.js server.js",
-    "build": "node node_modules/babel/bin/babel-node.js node_modules/webpack/bin/webpack.js --colors --display-error-details --verbose --config config/webpack.js"
+    "build": "node node_modules/babel/bin/babel-node.js node_modules/webpack/bin/webpack.js --colors --display-error-details --verbose --config config/webpack.js",
+    "postinstall": "rm -f node_modules/root; ln -sf .. node_modules/root"
   },
   "author": "Srikanth K. Agaram",
   "license": "GPLv3 (or later)",
@@ -15,24 +16,20 @@
   },
   "dependencies": {
     "babel": "^5.8.21",
-    "babel-plugin-typecheck": "^1.2.0",
     "hapi": "^8.8.1",
     "isomorphic-fetch": "2.1.1",
     "react": "^0.13",
-    "react-inline-css": "^1.2.0",
+    "react-markdown": "*",
     "react-router": "^0.13.3",
     "react-transmit": "^2.6.3",
-    "serve-favicon": "~2.3.0"
+    "strftime": "*"
   },
   "devDependencies": {
     "babel-core": "5.8.20",
     "babel-loader": "5.3.2",
     "babel-runtime": "5.8.20",
-    "concurrently": "0.1.1",
     "json-loader": "0.5.2",
-    "react-hot-loader": "1.2.8",
-    "webpack": "1.10.5",
-    "webpack-dev-server": "1.10.1"
+    "webpack": "1.10.5"
   },
   "engines": {
     "node": ">0.10.38"

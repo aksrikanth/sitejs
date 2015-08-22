@@ -1,24 +1,46 @@
 import React from 'react';
 import Transmit from 'react-transmit';
+import ArticleSnippet from 'root/app/components/articles/article_snippet';
+import relativeTime from 'root/app/util/relative_time';
+
+import posts from 'root/articles/posts.json';
 
 class Articles extends React.Component {
   render () {
-    const count = this.props.count;
+    let articles = JSON.parse(JSON.stringify(this.props.articles));
+    articles.sort((a, b) => {
+      if (a.time < b.time) {
+        return 1;
+      } else if (a.time > b.time) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
     return (
       <div>
-        <h1>Hello</h1>
-        <p>This blog has {count} articles.</p>
+        {articles.map(article =>
+          <ArticleSnippet article={article} />
+        )}
       </div>
     );
   }
 }
 
 export default Transmit.createContainer(Articles, {
-  queryParam: {},
   queries: {
-    count(queryParams) {
+    articles(queryParams) {
       return new Promise((resolve, reject) => {
-        resolve(10);
+        const articles = Object.keys(posts).map(key => {
+          const post = posts[key];
+          const article = (({id, file, title, snippet}) =>
+            ({id, file, title, snippet})
+          )(post);
+          article.time = Date.parse(post.time);
+          article.timeString = post.time;
+          return article;
+        });
+        resolve(articles);
       });
     }
   }

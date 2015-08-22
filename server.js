@@ -1,10 +1,17 @@
 import Path from 'path';
 import {Server} from 'hapi';
-import {routeToReact} from './app/server'
+import apiRoutes from 'root/app/api/routes';
+import {routeToReact} from 'root/app/server';
 
-import serverConfig from './config/server.json';
+import serverConfig from 'root/config/server.json';
 
-const env = process.env.NODE_ENV || 'development'
+// Set global constants to know if we're server or client side
+global.__SERVER__ = true;
+global.__CLIENT__ = false;
+global.__ROOT__ = __dirname;
+global.__ARTICLE_ROOT__ = Path.resolve(__dirname, 'articles/')
+
+const env = process.env.NODE_ENV || 'development';
 const server = new Server();
 server.connection({
   port: serverConfig[env].port
@@ -14,7 +21,7 @@ server.start(() => {
   console.log('server running at: ', server.info.uri);
 });
 
-server.route([
+const staticRoutes = [
   {  // Disallow robots for now
     method: 'GET',
     path: '/robots.txt',
@@ -32,7 +39,10 @@ server.route([
       }
     }
   }
-]);
+];
+
+const routes = staticRoutes.concat(apiRoutes);
+server.route(routes);
 
 server.ext('onPreResponse', (request, reply) => {
   if (typeof request.response.statusCode !== 'undefined') {

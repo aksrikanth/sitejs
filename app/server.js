@@ -1,12 +1,12 @@
 import React from 'react';
 import Router from 'react-router';
 import Transmit from 'react-transmit';
-import routes from './routes';
+import routes from 'root/app/routes';
 
 export function routeToReact(request, reply) {
   Router.run(routes, request.path, (Handler, router) => {
     Transmit.renderToString(Handler).then(({reactString, reactData}) => {
-      let output = (
+      let template = (
         `<!doctype html>
         <html lang="en-us">
           <head>
@@ -19,8 +19,11 @@ export function routeToReact(request, reply) {
           </body>
         </html>`
       );
-      output = Transmit.injectIntoMarkup(output, reactData, ['/public/dist/client.js']);
-      reply(output);
+      reply(Transmit.injectIntoMarkup(
+        template,
+        reactData,
+        ['/public/dist/client.js']
+      ));
     }).catch((error) => {
       reply(error.stack).type('text/plain').code(500);
     });
