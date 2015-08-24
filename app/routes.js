@@ -1,9 +1,9 @@
 import React from 'react';
 import {Route, DefaultRoute, NotFoundRoute} from 'react-router';
-import Layout from 'root/app/components/layout';
-import Articles from 'root/app/components/articles/index';
-import ParamsProxy from 'root/app/components/params_proxy';
-import NotFound from 'root/app/components/not_found';
+import Layout from 'modules/ui-layout';
+import Articles from 'modules/ui-articles';
+import ParamsProxy from 'modules/ui-params_proxy';
+import NotFound from 'modules/ui-not_found';
 
 export default (
   <Route path='/' handler={Layout}>

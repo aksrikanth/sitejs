@@ -1,7 +1,6 @@
 import React from 'react';
 import Transmit from 'react-transmit';
 import ReactMarkdown from 'react-markdown';
-import relativeTime from 'root/app/util/relative_time';
 
 class Article extends React.Component {
   render () {

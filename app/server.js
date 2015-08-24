@@ -19,11 +19,12 @@ export function routeToReact(request, reply) {
           </body>
         </html>`
       );
-      reply(Transmit.injectIntoMarkup(
+      const output = Transmit.injectIntoMarkup(
         template,
         reactData,
         ['/public/dist/client.js']
-      ));
+      );
+      reply(output);
     }).catch((error) => {
       reply(error.stack).type('text/plain').code(500);
     });

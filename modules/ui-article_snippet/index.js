@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router'
-import relativeTime from 'root/app/util/relative_time';
+import relativeTime from 'modules/relative_time';
 
 export default class ArticleSnippet extends React.Component {
   render () {
@@ -10,7 +10,7 @@ export default class ArticleSnippet extends React.Component {
       <article className='article'>
         <header className='title'>
           <div className='right-time' title={article.timeString}>
-            {relativeTime(now, article.time)}
+            {relativeTime(article.time)}
           </div>
           <h3>{article.title}</h3>
         </header>

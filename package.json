@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node node_modules/babel/bin/babel-node.js server.js",
     "build": "node node_modules/babel/bin/babel-node.js node_modules/webpack/bin/webpack.js --colors --display-error-details --verbose --config config/webpack.js",
-    "postinstall": "rm -f node_modules/root; ln -sf .. node_modules/root"
+    "postinstall": "scripts/link_modules"
   },
   "author": "Srikanth K. Agaram",
   "license": "GPLv3 (or later)",

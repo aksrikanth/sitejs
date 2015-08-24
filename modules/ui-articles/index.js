@@ -1,7 +1,6 @@
 import React from 'react';
 import Transmit from 'react-transmit';
-import ArticleSnippet from 'root/app/components/articles/article_snippet';
-import relativeTime from 'root/app/util/relative_time';
+import ArticleSnippet from 'modules/ui-article_snippet';
 
 import posts from 'root/articles/posts.json';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Article from 'root/app/components/articles/article';
+import Article from 'modules/ui-article';
 
 export default class ParamsProxy extends React.Component {
   render () {

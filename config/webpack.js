@@ -30,7 +30,6 @@ export default {
   },
   resolve: {
     modulesDirectories: [
-      'app',
       'node_modules'
     ],
     extensions: ['', '.json', '.js']
